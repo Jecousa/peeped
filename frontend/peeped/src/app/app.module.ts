@@ -9,11 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeModalPage } from './home/welcome-modal/welcome-modal.page';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, WelcomeModalPage],
   entryComponents: [ WelcomeModalPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,

@@ -6,6 +6,21 @@
 
   <ion-card-content>
     <ion-button (click)=" dismiss()"> dismiss </ion-button>
-
+    <a href="#ngSwitch">NgSwitch</a><br>
   </ion-card-content>
 </ion-card>
+
+<hr><h2 id="ngSwitch">NgSwitch Binding</h2>
+
+<div>
+    <ion-button name="user" [(ngModel)]="welcomeSelect" >Sign Up</ion-button>
+    <ion-button name="user" [(ngModel)]="welcomeSelect" >Sign In</ion-button>
+    <ion-button name="user" [(ngModel)]="welcomeSelect">About Peepeed</ion-button>
+</div>
+
+<div [ngSwitch]="welcomeSelect.type">
+  <app-signup *ngSwitchCase="'su'" [user]="welcomeSelect"></app-signup>
+  <app-sigin *ngSwitchCase="'si'" [user]="welcomeSelect"></app-sigin>
+  <app-about *ngSwitchCase="'about'" [user]="welcomeSelect"></app-about>
+  <app-default *ngSwitchDefault [user]="welcomeSelect"></app-default>
+</div>
