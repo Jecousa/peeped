@@ -1,23 +1,50 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>Login or Sign Up Below</ion-card-subtitle>
     <ion-card-title>Peeped</ion-card-title>
+    <ion-card-subtitle>Login or Sign Up Below</ion-card-subtitle>
   </ion-card-header>
 
   <ion-card-content>
     <div padding>
-      <ion-segment [(ngModel)]="user" color="secondary">
-        <ion-segment-button value="photographer">
+      <ion-segment [(ngModel)]="welcome" color="secondary">
+        <ion-segment-button value="su">
           Signup
         </ion-segment-button>
-        <ion-segment-button value="client">
-          Client
+        <ion-segment-button value="si">
+          Login
         </ion-segment-button>
       </ion-segment>
     </div>
   
-    <div [ngSwitch]="user">
-      <ion-list *ngSwitchCase="'photographer'">
+    <div [ngSwitch]="welcome">
+      <ion-list *ngSwitchCase="'su'">
+        <form #f='ngForm' (ngSubmit)="onSignin(f)">
+          <ion-list>
+            <ion-item>
+              <ion-input placeholder="Username"
+              ngModel
+              name="username"
+              required></ion-input>
+            </ion-item>
+          <ion-item>
+            <ion-input placeholder="Email"
+            type="email"
+            ngModel
+            name="email"
+            required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="Password" 
+            placeholder="Password"
+            ngModel
+            name="password"
+            required></ion-input>
+          </ion-item>
+          <button ion-button *ngIf="!isAuthenticated" (click)="onGoToSignup()">Signup</button>
+        </ion-list>
+        </form>
+      </ion-list>
+      <ion-list *ngSwitchCase="'si'">
         <form #f='ngForm' (ngSubmit)="onSignin(f)">
           <ion-list>
           <ion-item>
@@ -34,21 +61,14 @@
             name="password"
             required></ion-input>
           </ion-item>
-          <button ion-button (click)="onSignin()">Login Photographer</button>
+          <button ion-button (click)="onSignin()">Login</button>
         </ion-list>
         </form>
-        <button ion-button *ngIf="!isAuthenticated" (click)="onGoToSignup()">Signup Photographer</button>
       </ion-list>
-  
-      <ion-list *ngSwitchCase="'client'">
+      <ion-list *ngSwitchDefault>
         <ion-item>
-          <ion-input placeholder="Access Code"></ion-input>
+          <p>default</p>
         </ion-item>
-  
-        <ion-item>
-          <ion-input type="tel" placeholder="Phone Number"></ion-input>
-        </ion-item>
-        <button ion-button (click)="onGoToClient()">Login Client</button>
       </ion-list>
     </div>
   </ion-card-content>
