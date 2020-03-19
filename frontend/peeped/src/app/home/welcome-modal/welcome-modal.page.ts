@@ -14,11 +14,11 @@ export class WelcomeModalPage {
 
   constructor(navParams: NavParams, public modalCtrl: ModalController) {
     console.log(navParams.get('firstName'));
-    
+
   }
   dismiss() {
     this.modalCtrl.dismiss({
-      'dismissed': true
+      dismissed: true
     });
   }
 }
