@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ModalController, NavController, IonRouterOutlet } from '@ionic/angular';
 import { WelcomeModalPage } from './welcome-modal/welcome-modal.page';
-import { map } from 'rxjs/operators';
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;
 
@@ -15,10 +14,14 @@ declare var google;
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  lat: number;
+  lng: number;
+
   @ViewChild('map', {static: false}) mapElement: ElementRef;
    map: any;
 
-constructor(public navCtrl: NavController, public modalController: ModalController, private routerOutlet: IonRouterOutlet) {}
+constructor(public navCtrl: NavController, public modalController: ModalController) {}
 ngOnInit() {
   this.presentModal();
 }
@@ -26,16 +29,21 @@ ionViewWillEnter() {
   this.loadMap();
 }
 loadMap() {
-  let latLng = new google.maps.LatLng(51.9036442, 7.6673267);
-
-  let mapOptions = {
-    center: latLng,
-    zoom: 5,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+  Plugins.Geolocation.getCurrentPosition().then((position) => {
+    this.lat = position.coords.latitude;
+    this.lng = position.coords.longitude;
+    const latLng = new google.maps.LatLng(this.lat, this.lng );
+    const mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-
-  this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+  }, (err) => {
+    console.log(err);
+  });
 }
+
   async presentModal() {
   const modal = await this.modalController.create({
     component: WelcomeModalPage,

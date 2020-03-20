@@ -8,12 +8,7 @@ import { NavParams, ModalController } from '@ionic/angular';
 })
 export class WelcomeModalPage {
 
-  @Input() firstName: string;
-  @Input() lastName: string;
-  @Input() middleInitial: string;
-
   constructor(navParams: NavParams, public modalCtrl: ModalController) {
-    console.log(navParams.get('firstName'));
 
   }
   dismiss() {
