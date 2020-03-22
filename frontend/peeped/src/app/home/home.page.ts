@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ModalController, NavController, IonRouterOutlet } from '@ionic/angular';
+import { ModalController, NavController, IonRouterOutlet, MenuController, IonInfiniteScroll } from '@ionic/angular';
 import { WelcomeModalPage } from './welcome-modal/welcome-modal.page';
 import { Plugins } from '@capacitor/core';
 const { Geolocation } = Plugins;
-
-import { Observable } from 'rxjs';
 
 declare var google;
 
@@ -20,6 +18,7 @@ export class HomePage implements OnInit {
 
   @ViewChild('map', {static: false}) mapElement: ElementRef;
    map: any;
+  modalCtrl: any;
 
 constructor(public navCtrl: NavController, public modalController: ModalController) {}
 ngOnInit() {
@@ -35,7 +34,8 @@ loadMap() {
     const latLng = new google.maps.LatLng(this.lat, this.lng );
     const mapOptions = {
       center: latLng,
-      zoom: 15,
+      disableDefaultUI: true,
+      zoom: 10,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
@@ -43,7 +43,11 @@ loadMap() {
     console.log(err);
   });
 }
-
+dismiss() {
+  this.modalCtrl.dismiss({
+    dismissed: true
+  });
+}
   async presentModal() {
   const modal = await this.modalController.create({
     component: WelcomeModalPage,

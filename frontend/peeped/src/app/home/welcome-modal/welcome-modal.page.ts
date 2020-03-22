@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,14 +8,10 @@ import { NavParams, ModalController } from '@ionic/angular';
 })
 export class WelcomeModalPage {
 
-  constructor(navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public modalCtrl: ModalController) {
 
   }
-  dismiss() {
-    this.modalCtrl.dismiss({
-      dismissed: true
-    });
-  }
+
 }
 
 

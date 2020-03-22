@@ -1,5 +1,7 @@
 <ion-card>
   <ion-card-header>
+    <!--Todo delete debug btn-->
+    <button ion-button (click)="dismiss()">debug</button>
     <ion-card-title>Peeped</ion-card-title>
     <ion-card-subtitle>Login or Sign Up Below</ion-card-subtitle>
   </ion-card-header>
@@ -40,7 +42,7 @@
             name="password"
             required></ion-input>
           </ion-item>
-          <button ion-button *ngIf="!isAuthenticated" (click)="onGoToSignup()">Signup</button>
+          <button ion-button (click)="onGoToSignup()">Signup</button>
         </ion-list>
         </form>
       </ion-list>
@@ -61,17 +63,17 @@
             name="password"
             required></ion-input>
           </ion-item>
-          <button ion-button (click)="onSignin()">Login</button>
+          <!--Todo update dismiss method-->
+          <button ion-button (click)="dismiss()">Login</button>
         </ion-list>
         </form>
       </ion-list>
       <ion-list *ngSwitchDefault>
         <ion-item>
-          <p>default</p>
+          <p>Something about Peeped, pictures, etc</p>
         </ion-item>
       </ion-list>
     </div>
   </ion-card-content>
-  <ion-button (click)=" dismiss()"> dismiss </ion-button>
 </ion-card>
 
