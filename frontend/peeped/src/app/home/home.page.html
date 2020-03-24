@@ -1,20 +1,18 @@
-<ion-header>  
-  <ion-toolbar>  
-    <ion-buttons slot="start" color="primary">  
-      <ion-menu-button></ion-menu-button>  
-    </ion-buttons>  
-    <ion-title>  
-      Peeped  
-    </ion-title>  
-  </ion-toolbar>  
-</ion-header> 
-<ion-content [fullscreen]="true">
-  <div #map id="map"></div>
 
- 
- 
+<ion-content [fullscreen]="true">
+  <div #map id="map"></div> 
   <div id="local">
-    
+    <h2 style="text-align: center;">
+      People in your Area
+    </h2>
+          <ion-item *ngFor="let user of users">
+          <ion-avatar slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <ion-label>{{user.username}}</ion-label>
+          <ion-label>{{user.age}}</ion-label>
+          <ion-label>{{user.gender}}</ion-label>
+        </ion-item>
   </div>
   
 </ion-content>

@@ -1,15 +1,20 @@
 export class User {
 
-    static users: User[] = [
-        new User (1, "su", " ", " "," "," "),
-        new User (2, "si",)
-    ]
     constructor(
         public id?: number,
-        public type?: string,
         public username?: string,
         public fName?: string,
         public lName?: string,
-        public email?: string
+        public email?: string, 
+        public age?: number,
+        public gender?: string
     ){}
+    
 }
+export const USERS: User[] =[
+    { id: 1, username: "co_babe99",fName:"Amy", lName: "Kent", email: "cobe99@gmail.com", age: 22, gender: "female"  },
+    { id: 2, username: "natureDude",fName:"Joe", lName: "Adamas", email: "clevername@gmail.com", age: 34, gender: "male"  },
+    { id: 3, username: "ziggy12",fName:"Amy", lName: "Kent", email: "cobe99@gmail.com", age: 22, gender: "female"  }
+
+
+]

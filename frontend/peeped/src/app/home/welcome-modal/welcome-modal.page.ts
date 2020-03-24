@@ -11,7 +11,11 @@ export class WelcomeModalPage {
   constructor(public modalCtrl: ModalController) {
 
   }
-
+  dismiss() {
+    this.modalCtrl.dismiss({
+      dismissed: true
+    });
+  }
 }
 
 

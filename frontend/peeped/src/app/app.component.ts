@@ -18,9 +18,9 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
+  openUser() {
+    this.menu.enable(true, 'user');
+    this.menu.open('user');
   }
   initializeApp() {
     this.platform.ready().then(() => {

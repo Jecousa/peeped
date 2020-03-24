@@ -1,23 +1,38 @@
 
 
 <ion-app>
-  
-<ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+  <ion-header id="mainHeader">  
+    <ion-toolbar>  
+      <ion-title slot="start" [routerLink]="['/']">  
+        Peeped  
+      </ion-title>  
+      <ion-item>
+        <ion-thumbnail slot="end">
+                <ion-menu-button>       
+                   <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                </ion-menu-button>  
+        </ion-thumbnail>
+      </ion-item>
+    </ion-toolbar>  
+  </ion-header> 
+<ion-menu side="end" menuId="custom" contentId="user_main" class="my-custom-menu">
   <ion-header>
     <ion-toolbar color="tertiary">
-      <ion-title>Settings</ion-title>
+      <ion-title>Welcome <!--Todo update username-->User</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="has-header">
     <ion-list>
-      <ion-item>Account</ion-item>
-      <ion-item>Location Services</ion-item>
-      <ion-item>Notifications</ion-item>
-      <ion-item>Privacy</ion-item>
-      <ion-item>Security</ion-item>
+      <ion-item [routerLink]="['/profile']">Profile</ion-item>
+      <ion-item [routerLink]="['/messages']">Messages <ion-badge color="danger">66</ion-badge>
+      </ion-item>
+      <ion-item [routerLink]="['/notifications']">Notifications <ion-badge color="success">44</ion-badge>
+      </ion-item>
+      <ion-item [routerLink]="['/friends']">Friends</ion-item>
+      <ion-item [routerLink]="['/settings']">Settings</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-router-outlet id="main"></ion-router-outlet>
-  <ion-router-outlet></ion-router-outlet>
+<ion-router-outlet id="user_main"></ion-router-outlet>
+  <ion-router-outlet style="margin-top: 50px;"></ion-router-outlet>
 </ion-app>

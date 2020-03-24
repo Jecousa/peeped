@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { ModalController, NavController, IonRouterOutlet, MenuController, IonInfiniteScroll } from '@ionic/angular';
 import { WelcomeModalPage } from './welcome-modal/welcome-modal.page';
 import { Plugins } from '@capacitor/core';
+import { User, USERS } from '../models/user';
 const { Geolocation } = Plugins;
 
 declare var google;
@@ -16,6 +17,8 @@ export class HomePage implements OnInit {
   lat: number;
   lng: number;
 
+  users = USERS;
+  @Input() user: User;
   @ViewChild('map', {static: false}) mapElement: ElementRef;
    map: any;
   modalCtrl: any;
@@ -35,7 +38,7 @@ loadMap() {
     const mapOptions = {
       center: latLng,
       disableDefaultUI: true,
-      zoom: 10,
+      zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
