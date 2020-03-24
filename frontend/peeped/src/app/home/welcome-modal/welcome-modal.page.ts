@@ -7,6 +7,7 @@ import { NavParams, ModalController } from '@ionic/angular';
   styleUrls: ['./welcome-modal.page.scss'],
 })
 export class WelcomeModalPage {
+  public welcome: any;
 
   constructor(public modalCtrl: ModalController) {
 

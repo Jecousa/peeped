@@ -20,7 +20,7 @@
   
     <div [ngSwitch]="welcome">
       <ion-list *ngSwitchCase="'su'">
-        <form #f='ngForm' (ngSubmit)="onSignin(f)">
+      <!--  <form #f='ngForm' (ngSubmit)="onSignin(f)"> -->
           <ion-list>
             <ion-item>
               <ion-input placeholder="Username"
@@ -42,12 +42,12 @@
             name="password"
             required></ion-input>
           </ion-item>
-          <button ion-button (click)="onGoToSignup()">Signup</button>
+          <button ion-button (click)="dismiss()">Signup</button>
         </ion-list>
-        </form>
+       <!-- </form> -->
       </ion-list>
       <ion-list *ngSwitchCase="'si'">
-        <form #f='ngForm' (ngSubmit)="onSignin(f)">
+      <!--  <form #f='ngForm' (ngSubmit)="onSignin(f)"> -->
           <ion-list>
           <ion-item>
             <ion-input placeholder="Email"
@@ -66,7 +66,7 @@
           <!--Todo update dismiss method-->
           <button ion-button (click)="dismiss()">Login</button>
         </ion-list>
-        </form>
+        <!-- </form> -->
       </ion-list>
       <ion-list *ngSwitchDefault>
         <ion-item>
