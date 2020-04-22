@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { ModalController, NavController, IonRouterOutlet, MenuController, IonInfiniteScroll } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { WelcomeModalPage } from './welcome-modal/welcome-modal.page';
 import { Plugins } from '@capacitor/core';
 import { User, USERS } from '../models/user';
-const { Geolocation } = Plugins;
 
 declare var google;
 

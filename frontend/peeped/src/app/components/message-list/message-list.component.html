@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-item-sliding *ngFor="let notification of notifications">
+    <ion-item >
+      <div>
+        <p>test</p>
+      </div>
+      <ion-icon class="ios-add-size icon icon-md ios-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item-options side="right">
+     <button danger ion-button color="danger"><ion-icon name="trash"></ion-icon> Delete</button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
