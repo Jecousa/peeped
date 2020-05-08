@@ -1,10 +1,11 @@
 import graphene 
 import messaging.schema
+import users.schema
 
-class Query(messaging.schema.Query, graphene.ObjectType):
+class Query(users.schema.Query, messaging.schema.Query, graphene.ObjectType):
     pass
 
-class Mutation(messaging.schema.Mutation,
+class Mutation(users.schema.Mutation, messaging.schema.Mutation,
 graphene.ObjectType):
     pass
 
