@@ -10,22 +10,30 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  dark = false;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private menu: MenuController
+    private menu: MenuController,
+
   ) {
-    this.initializeApp();
+    
+    const prefersColor = window.matchMedia('(prefers-color-scheme: dark)');
+    this.dark = prefersColor.matches;
+    this.updateDarkMode();
+
+    prefersColor.addEventListener(
+      'change',
+      mediaQuery => {
+        this.dark = mediaQuery.matches;
+        this.updateDarkMode();
+      }
+    );
   }
-  openUser() {
-    this.menu.enable(true, 'user');
-    this.menu.open('user');
-  }
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+
+  updateDarkMode() {
+    document.body.classList.toggle('dark', this.dark);
   }
 }
