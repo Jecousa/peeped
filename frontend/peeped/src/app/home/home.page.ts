@@ -41,6 +41,8 @@ loadMap() {
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+    var marker = new google.maps.Marker({position:latLng});
+marker.setMap(this.map);
   }, (err) => {
     console.log(err);
   });
