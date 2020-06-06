@@ -5,6 +5,15 @@
     <h2 style="text-align: center;">
       People in your Area
     </h2>
+    <ion-item>
+      <h4>Zoom Level</h4>
+      <ion-input [(ngModel)]="zoom"></ion-input>
+      <ion-range min="5" max="20" step="2" [(ngModel)]="zoom" (ionChange)="loadMap(this.zoom)">
+        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+        <ion-icon slot="end" name="sunny"></ion-icon>
+      </ion-range>
+      
+    </ion-item>  
           <ion-item *ngFor="let user of users">
           <ion-avatar slot="start">
             <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">

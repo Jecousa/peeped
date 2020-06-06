@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
 
   lat: number;
   lng: number;
+  zoom:number = 15;
 
   users = USERS;
   @Input() user: User;
@@ -29,15 +30,18 @@ ngOnInit() {
 ionViewWillEnter() {
   this.loadMap();
 }
+
 loadMap() {
   Plugins.Geolocation.getCurrentPosition().then((position) => {
     this.lat = position.coords.latitude;
     this.lng = position.coords.longitude;
+    this.zoom;
+    console.log(this.zoom)
     const latLng = new google.maps.LatLng(this.lat, this.lng );
     const mapOptions = {
       center: latLng,
       disableDefaultUI: true,
-      zoom: 15,
+      zoom: this.zoom,
       mapTypeId: google.maps.MapTypeId.ROADMAP
   };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
