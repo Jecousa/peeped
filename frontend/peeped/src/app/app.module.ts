@@ -10,10 +10,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WelcomeModalPage } from './home/welcome-modal/welcome-modal.page';
 import { FormsModule } from '@angular/forms';
+import { LocationFilterPipe } from './location-filter.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, WelcomeModalPage],
+  declarations: [AppComponent, WelcomeModalPage, LocationFilterPipe],
   entryComponents: [ WelcomeModalPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [

@@ -24,13 +24,18 @@ export class HomePage implements OnInit {
   modalCtrl: any;
 
 constructor(public navCtrl: NavController, public modalController: ModalController) {}
+
 ngOnInit() {
   this.presentModal();
 }
 ionViewWillEnter() {
   this.loadMap();
 }
-
+changeZoom($zoomChange){
+  console.log($zoomChange);
+  console.log(this.zoom);
+  return $zoomChange
+}
 loadMap() {
   Plugins.Geolocation.getCurrentPosition().then((position) => {
     this.lat = position.coords.latitude;
@@ -65,3 +70,4 @@ dismiss() {
   return await modal.present();
 }
 }
+

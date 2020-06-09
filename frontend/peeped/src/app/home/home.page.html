@@ -14,14 +14,17 @@
       </ion-range>
       
     </ion-item>  
-          <ion-item *ngFor="let user of users">
-          <ion-avatar slot="start">
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
-          <ion-label>{{user.username}}</ion-label>
-          <ion-label>{{user.age}}</ion-label>
-          <ion-label>{{user.gender}}</ion-label>
-        </ion-item>
+        <ion-list *ngFor="let user of users">
+          <ion-item *ngIf="user.location < zoom">
+            <ion-avatar slot="start">
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-avatar>
+            <ion-label>{{user.username}}</ion-label>
+            <ion-label>{{user.age}}</ion-label>
+            <ion-label>{{user.gender}}</ion-label>
+          </ion-item>
+        </ion-list>
+          
   </div>
   
 </ion-content>
