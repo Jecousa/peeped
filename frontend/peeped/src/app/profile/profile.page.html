@@ -1,9 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+  <ion-item >
+    <ion-grid *ngFor="let user of users">
+      <ion-row *ngIf="user.isUser==true">
+        <ion-col>
+        <ion-row>
+          <ion-thumbnail >
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-thumbnail>
+        </ion-row>
+        <ion-row>
+          <span>{{ user.username}}</span>
+        </ion-row>
+        <ion-row>
+          <span>{{ user.fName }}</span>
+        </ion-row>
+        <ion-row>      
+    <span>{{ user.lName }}</span>
+        </ion-row>
+        <ion-row>      
+          <ion-label>{{ user.age }}</ion-label>
+              </ion-row>
+        <ion-row>
+          <ion-button color="primary" (click)="editModal()">Edit</ion-button>
+        </ion-row>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
 </ion-content>

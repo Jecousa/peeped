@@ -1,0 +1,13 @@
+<ion-content >
+  <form *ngFor="let user of users | slice:3:4;">
+  <ion-item *ngIf="user.isUser==true">
+  <ion-label position="stacked">Update Profile</ion-label>
+  <ion-input placeholder="{{ user.username }}"></ion-input>
+  <ion-input placeholder="{{ user.fName }}"></ion-input>
+  <ion-input placeholder="{{ user.lName }}"></ion-input>
+  <ion-input placeholder="{{ user.age }}"></ion-input></ion-item>
+  <div class="">
+    <ion-button expand="block" type="submit">Update Profile</ion-button>
+  </div>
+</form>
+</ion-content>

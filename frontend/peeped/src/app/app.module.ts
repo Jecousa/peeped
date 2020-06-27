@@ -11,11 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { WelcomeModalPage } from './home/welcome-modal/welcome-modal.page';
 import { FormsModule } from '@angular/forms';
 import { LocationFilterPipe } from './location-filter.pipe';
+import { EditModalPage } from './profile/edit-modal/edit-modal.page';
 
 
 @NgModule({
-  declarations: [AppComponent, WelcomeModalPage, LocationFilterPipe],
-  entryComponents: [ WelcomeModalPage],
+  declarations: [AppComponent, WelcomeModalPage, LocationFilterPipe, EditModalPage],
+  entryComponents: [ WelcomeModalPage, EditModalPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
     StatusBar,
