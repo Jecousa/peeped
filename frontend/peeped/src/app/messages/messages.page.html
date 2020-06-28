@@ -5,5 +5,12 @@
 </ion-header>
 
 <ion-content>
-
+  <div *ngFor="let messaging of messages | async">
+    <div class="card" style="width: 100%; margin-top: 10px">
+      <div class="card-body">
+        <h5 class="card-title">{{messaging.sender}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">by {{messaging.receiver}}</h6>
+      </div>
+    </div>
+  </div>
 </ion-content>
